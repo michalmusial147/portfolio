@@ -23,8 +23,15 @@ const useStyles = makeStyles((theme) => ({
 const Terminal = () => {
    const classes = useStyles();
    const terminal = new Xterm();
+  
    useEffect(()=>{
       let container = document.getElementById("terminal-container");
+      terminal.onKey(e => {
+         console.log(e.key);
+         terminal.write(e.key);
+         if (e.key == '\r')
+         terminal.write('\n');
+     })
       if(container!=null){
          terminal.open(container);
          terminal.write("Terminal Connected");
