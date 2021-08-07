@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import '@fontsource/roboto';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
+import Terminal from './components/Terminal';
 
 const useStyles = makeStyles((theme) => ({
   topBar: {
@@ -27,14 +28,22 @@ const useStyles = makeStyles((theme) => ({
   divider2: {
     height: '75vh',
     background: '#FFD523',
+  },
+  divider3: {
+    height: '25vh',
+    background: '#ABABAB',
   }
+  
 }));
 
-const App = ({ }) => {
+const App = () => {
   const classes = useStyles();
+
   return (
   <>
-    <div className={classes.divider1}> 
+    
+    <div className={classes.divider1}>
+      <Terminal></Terminal>
     </div>
     <div className={classes.topBar}>
         <h1 className={classes.h1}>Musialowski</h1>
@@ -45,7 +54,6 @@ const App = ({ }) => {
         </Box>
     </div>
     <div className={classes.divider2}>
-
     </div>
   </>
   )
